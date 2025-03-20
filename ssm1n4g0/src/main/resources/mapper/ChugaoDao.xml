@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ChugaoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.ChugaoEntity" id="chugaoMap">
+        <result property="yonghuming" column="yonghuming"/>
+        <result property="xingming" column="xingming"/>
+        <result property="bianhao" column="bianhao"/>
+        <result property="lunwenbiaoti" column="lunwenbiaoti"/>
+        <result property="gaiyao" column="gaiyao"/>
+        <result property="zhengwen" column="zhengwen"/>
+        <result property="dianzidang" column="dianzidang"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.ChugaoVO" >
+		SELECT * FROM chugao  chugao         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.ChugaoVO" >
+		SELECT  chugao.* FROM chugao  chugao
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.ChugaoView" >
+
+		SELECT  chugao.* FROM chugao  chugao 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.ChugaoView" >
+		SELECT * FROM chugao  chugao <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
